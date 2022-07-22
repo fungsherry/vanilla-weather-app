@@ -54,15 +54,16 @@ ul {
 }
 #searchButton {
   line-height: 30px;
-  padding: 3px 7px 3px 7px;
+  padding: 3px 10px 3px 10px;
   margin-right: 15px;
 }
 #currentLocationButton {
   line-height: 30px;
-  padding: 3px 7px 3px 7px;
+  padding: 3px 10px 3px 10px;
 }
 #description {
   font-size: 14px;
+  text-transform: capitalize;
 }
 .currentWeatherSymbol {
   display: block;
