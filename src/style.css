@@ -20,6 +20,15 @@ h4 {
   font-weight: 500;
   margin-bottom: 5px;
 }
+h6 {
+  font-size: 18px;
+  color: #34373d;
+  font-weight: 400;
+  line-height: 24px;
+  position: relative;
+  left: 10%;
+  margin-top: 10px;
+}
 a {
   font-weight: normal;
   text-decoration: none;
@@ -62,13 +71,14 @@ ul {
   padding: 3px 10px 3px 10px;
 }
 #description {
+  display: block;
   font-size: 14px;
+  text-align: center;
   text-transform: capitalize;
 }
-.currentWeatherSymbol {
+.currentWeatherIcon {
   display: block;
   position: relative;
-  left: 0;
 }
 .dailyForecast {
   text-align: center;

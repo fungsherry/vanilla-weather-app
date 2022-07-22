@@ -26,14 +26,25 @@ function searchWeather(response) {
   place.innerHTML = response.data.name;
   let time = document.querySelector("#time");
   time.innerHTML = currentTime(response.data.dt * 1000);
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  let maxTemp = document.querySelector("#maxTemp");
+  maxTemp.innerHTML = Math.round(response.data.main.temp_max);
+  let minTemp = document.querySelector("#minTemp");
+  minTemp.innerHTML = Math.round(response.data.main.temp_min);
   let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].description;
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;
   let windspeed = document.querySelector("#windspeed");
   windspeed.innerHTML = Math.round(response.data.wind.speed);
+  let temperature = document.querySelector("#temperature");
+  celsiusTemperature = response.data.main.temp;
+  temperature.innerHTML = Math.round(celsiusTemperature);
+  let weatherIcon = document.querySelector("#currentWeatherIcon");
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchPlace(place) {
@@ -41,6 +52,8 @@ function searchPlace(place) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${place}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(searchWeather);
 }
+let fillForm = document.querySelector("#searchForm");
+fillForm.addEventListener("submit", submitSearch);
 
 function submitSearch(event) {
   event.preventDefault();
@@ -62,5 +75,26 @@ function currentLocation(event) {
 }
 let showTemp = document.querySelector("#currentLocationButton");
 showTemp.addEventListener("click", currentLocation);
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheit = document.querySelector("#degreeF");
+fahrenheit.addEventListener("click", showFahrenheitTemp);
+
+let celsius = document.querySelector("#degreeC");
+celsius.addEventListener("click", showCelsiusTemp);
 
 searchPlace("Hong Kong");
