@@ -80,8 +80,14 @@ ul {
 #forecast {
   text-align: center;
   font-size: 16px;
-  color: #4f4f4f;
+  color: #3a3d44;
   line-height: 25px;
+}
+.forecastMinTemp {
+  color: #4f4f4f#3a3d44;
+}
+.forecastMaxTemp {
+  font-weight: bold;
 }
 .credit {
   color: #fff;
