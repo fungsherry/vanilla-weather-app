@@ -1,5 +1,5 @@
 function currentTime(timestamp) {
-  let now = new Date();
+  let now = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -19,6 +19,52 @@ function currentTime(timestamp) {
     currentMinute = `0${currentMinute}`;
   }
   return `${currentDay} ${currentHour}:${currentMinute}`;
+}
+
+function formatDay(timestamp) {
+  let forecastDay = new Date(timestamp * 1000);
+  let day = forecastDay.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function showForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+        <div class="col">
+        <div class="forecastDay">${formatDay(forecastDay.dt)}</div>
+        <img
+          src=
+          "https://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt=""/>
+        <div class="forecastTemp">
+        <span class="forecastMinTemp">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
+          <span class="forecastMaxTemp">${Math.round(
+            forecastDay.temp.max
+          )}°</span>
+        </div>
+      </div>
+  `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "d10172993467acc634527beee963898b";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function searchWeather(response) {
@@ -42,9 +88,10 @@ function searchWeather(response) {
   let weatherIcon = document.querySelector("#currentWeatherIcon");
   weatherIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function searchPlace(place) {
