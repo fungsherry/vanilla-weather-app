@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
+
   <body>
     <div class="container">
       <div class="app-wrapper">
@@ -50,9 +51,10 @@
             <div class="col-12">
               <h3 class="place"></h3>
             </div>
-            <div class="col-6">
+            <div class="col-7">
               <h4>
                 <span id="time"> </span>
+                <span id="description"></span>
               </h4>
               <h4 class="temp">
                 <strong>
@@ -64,15 +66,9 @@
                   <a href="#" id="degreeF">°F</a>
                 </span>
               </h4>
-              <h6>
-                Max <span id="maxTemp"></span>°C
-                <br />
-                Min <span id="minTemp"></span>°C
-              </h6>
             </div>
-            <div class="col-2">
+            <div class="col-1">
               <img src="" alt="" id="currentWeatherIcon" />
-              <span id="description"></span>
             </div>
             <div class="col-4">
               <ul>
@@ -85,65 +81,78 @@
                   <span id="windspeed"></span>km/h
                 </li>
               </ul>
+              <h6>
+                ⬇️ <span id="minTemp"></span>°C ⬆️ <span id="maxTemp"></span>°C
+              </h6>
             </div>
           </div>
           <hr />
 
-          <div class="row dailyForecast">
+          <div class="row weatherForecast">
             <div class="col">
-              Mon
-              <br />
-              30°C
-              <br />
+              <div class="forecastDay">Mon</div>
               <img
                 src="images/raining.JPG"
                 alt="raining"
                 class="dailyForecast first"
               />
+              <div class="forecastTemp">
+                <span class="forecastMinTemp">27</span> |
+                <span class="forecastMaxTemp">30°C</span>
+              </div>
+              <br />
             </div>
             <div class="col">
-              Tue
-              <br />
-              30°C
-              <br />
+              <div class="forecastDay">Tue</div>
               <img
                 src="images/raining.JPG"
                 alt="raining"
-                class="dailyForecast second"
+                class="dailyForecast first"
               />
+              <div class="forecastTemp">
+                <span class="forecastMinTemp">27</span> |
+                <span class="forecastMaxTemp">30°C</span>
+              </div>
+              <br />
             </div>
             <div class="col">
-              Wed
-              <br />
-              30°C
-              <br />
+              <div class="forecastDay">Wed</div>
               <img
                 src="images/raining.JPG"
                 alt="raining"
-                class="dailyForecast third"
+                class="dailyForecast first"
               />
+              <div class="forecastTemp">
+                <span class="forecastMinTemp">27</span> |
+                <span class="forecastMaxTemp">30°C</span>
+              </div>
+              <br />
             </div>
             <div class="col">
-              Thu
-              <br />
-              31°C
-              <br />
+              <div class="forecastDay">Thu</div>
               <img
-                src="images/dizzling.JPG"
-                alt="dizzling"
-                class="dailyForecast fourth"
+                src="images/raining.JPG"
+                alt="raining"
+                class="dailyForecast first"
               />
+              <div class="forecastTemp">
+                <span class="forecastMinTemp">27</span> |
+                <span class="forecastMaxTemp">30°C</span>
+              </div>
+              <br />
             </div>
             <div class="col">
-              Fri
-              <br />
-              31°C
-              <br />
+              <div class="forecastDay">Fri</div>
               <img
-                src="images/sunshower.JPG"
-                alt="sunshower"
-                class="dailyForecast fifth"
+                src="images/raining.JPG"
+                alt="raining"
+                class="dailyForecast first"
               />
+              <div class="forecastTemp">
+                <span class="forecastMinTemp">27</span> |
+                <span class="forecastMaxTemp">30°C</span>
+              </div>
+              <br />
             </div>
           </div>
         </div>

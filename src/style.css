@@ -21,12 +21,11 @@ h4 {
   margin-bottom: 5px;
 }
 h6 {
-  font-size: 18px;
-  color: #34373d;
+  font-size: 14px;
+  color: #585c60;
   font-weight: 400;
-  line-height: 24px;
-  position: relative;
-  left: 10%;
+  line-height: 20px;
+  text-align: right;
   margin-top: 10px;
 }
 a {
@@ -64,23 +63,21 @@ ul {
 #searchButton {
   line-height: 30px;
   padding: 3px 10px 3px 10px;
-  margin-right: 15px;
+  margin-right: 25px;
 }
 #currentLocationButton {
   line-height: 30px;
   padding: 3px 10px 3px 10px;
 }
 #description {
-  display: block;
-  font-size: 14px;
-  text-align: center;
+  font-size: 18px;
   text-transform: capitalize;
 }
 .currentWeatherIcon {
   display: block;
   position: relative;
 }
-.dailyForecast {
+.weatherForecast {
   text-align: center;
   font-size: 16px;
   color: #4f4f4f;
